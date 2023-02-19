@@ -11,6 +11,7 @@ model Victim {
   ci        Int      @id @default(autoincrement())
   name      String?
   lastname      String?
+  username String?
   edad Int?
 }
 
@@ -30,4 +31,11 @@ model Service {
 }
 
 
+model Police {
+  ci        Int      @id @default(autoincrement())
+  name      String?
+  lastname      String?
+  username String?
+  password Int?
+}
 

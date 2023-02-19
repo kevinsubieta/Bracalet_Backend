@@ -8,18 +8,20 @@ export class UsersQueries {
     }
 
     async createNewUserTest() {
-        await prisma.Users.create({
+        await prisma.Police.create({
             data: {
                 ci: 3,
-                name: 'Nuevo',
+                name: 'Kevin',
                 lastname: 'Test',
+                username: 'KevinTest',
+                password: '123'
             },
         })
     }
 
     async getAllUser(){
         await this.createNewUserTest()
-        return await prisma.Users.findMany()
+        return await prisma.Police.findMany()
     }
 
 }
