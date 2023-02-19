@@ -15,13 +15,13 @@ router.get('/', (_req, res) => {
 
 router.get('/login', (_req, res) => {
     console.log('Login')
-    console.log(res)
+    res.send('OK');
 });
 
 
 router.get('/registerRequest', (_req, res) => {
     console.log('Registrar solicitud')
-    console.log(res)
+    res.send('OK');
 });
 
 
