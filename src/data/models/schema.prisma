@@ -26,8 +26,9 @@ model Request {
 
 model Service {
   id        Int      @id @default(autoincrement())
-  latitud      Decimal
-  longitud     Decimal
+  lat      Decimal
+  long    Decimal
+  dateService DateTime @default(now())
 }
 
 
@@ -36,6 +37,6 @@ model Police {
   name      String?
   lastname      String?
   username String?
-  password Int?
+  password String?
 }
 
