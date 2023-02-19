@@ -1,0 +1,33 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Victim {
+  ci        Int      @id @default(autoincrement())
+  name      String?
+  lastname      String?
+  edad Int?
+}
+
+model Request {
+  ci        Int      @id @default(autoincrement())
+  id_a      String?
+  id_p      String?
+  dateRequest DateTime @default(now())
+  active Boolean? @default(false)
+}
+
+
+model Service {
+  id        Int      @id @default(autoincrement())
+  latitud      Decimal
+  longitud     Decimal
+}
+
+
+
