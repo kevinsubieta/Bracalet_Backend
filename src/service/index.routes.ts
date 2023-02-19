@@ -4,7 +4,7 @@ import {UserDomain} from "../domain/UserDomain";
 const router = Router();
 
 router.get('/', (_req, res) => {
-    console.log('someone pinged here!!! ' + new Date().toLocaleDateString());
+    console.log('someone pinged here!!! ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString());
     new UserDomain().createNewUserTest().then(response => {
             console.log(response);
             res.send('OK');
