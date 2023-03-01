@@ -19,9 +19,21 @@ export class UsersQueries {
         })
     }
 
-    async getAllUser(){
-        await this.createNewUserTest()
-        return await prisma.Police.findMany()
+    async getAllUser() {
+      //  await this.createNewUserTest()
+        return 'OK'
     }
+
+
+    async loginByUserAndPass(data: any) {
+        let responseFromDB = await prisma.police.findFirst({
+            where: {
+                userName: data.userName,
+                password: data.password
+            }
+        })
+        return responseFromDB
+    }
+
 
 }

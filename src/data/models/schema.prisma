@@ -7,33 +7,35 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Victim {
-  ci        Int      @id @default(autoincrement())
+model victim {
+  ci        Int @id
   name      String?
   lastname      String?
   username String?
   edad Int?
 }
 
-model Request {
-  ci        Int      @id @default(autoincrement())
-  id_a      String?
-  id_p      String?
-  dateRequest DateTime @default(now())
-  active Boolean? @default(false)
+model request {
+  idr        Int      @id @default(autoincrement())
+  ci        Int?
+  id_a      Int?
+  id_p      Int?
+  date_req String?
+  active Boolean?
 }
 
 
-model Service {
-  id        Int      @id @default(autoincrement())
-  lat      Decimal
-  long    Decimal
-  dateService DateTime @default(now())
+model service {
+  ids        Int      @id @default(autoincrement())
+  lat      Decimal?
+  long    Decimal?
+  ci        Int?
+  date_service String?
 }
 
 
-model Police {
-  ci        Int      @id @default(autoincrement())
+model police {
+  ci        Int @id
   name      String?
   lastname      String?
   username String?

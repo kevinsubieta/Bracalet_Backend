@@ -1,5 +1,6 @@
 import {Router} from 'express';
 import {UserDomain} from "../domain/UserDomain";
+import {RequestDomain} from "../domain/RequestDomain";
 
 const router = Router();
 
@@ -13,22 +14,51 @@ router.get('/', (_req, res) => {
 });
 
 
-router.get('/login', (_req, res) => {
-    console.log('Login')
-    res.send('OK');
+router.post('/login', (req, res) => {
+    console.log('Ver Login');
+    let data = req.body;
+    new UserDomain().tryLoginUser(data).then(response => {
+            let jsonResponse = JSON.stringify(response)
+            console.log(jsonResponse);
+            res.send(jsonResponse);
+        }
+    )
 });
 
 
-router.get('/registerRequest', (_req, res) => {
-    console.log('Registrar solicitud')
-    res.send('OK');
+router.post('/registerRequest', (req, res) => {
+    console.log('Ver request');
+    let data = req.body;
+    new RequestDomain().registerNewRequest(data).then(response => {
+        let jsonResponse = JSON.stringify(response)
+        console.log(jsonResponse);
+        res.send(jsonResponse);
+    })
 });
 
 
-router.get('/verTodasLasSolicitudPendientes', (_req, res) => {
+router.get('/getAllRequest', (_req, res) => {
     console.log('Ver todas las solicitudes pendientes')
-    console.log(res)
+    new RequestDomain().getAllRequest().then(response => {
+        let jsonResponse = JSON.stringify(response)
+        console.log(jsonResponse);
+        res.send(jsonResponse);
+    })
 });
+
+
+router.get('/AttendRequest', (req, res) => {
+    console.log('Atender una solicitud')
+    let data = req.body;
+    new RequestDomain().attendAnyRequest(data).then(response => {
+        let jsonResponse = JSON.stringify(response)
+        console.log(jsonResponse);
+        res.send(jsonResponse);
+    })
+});
+
+
+
 
 
 export default router;
