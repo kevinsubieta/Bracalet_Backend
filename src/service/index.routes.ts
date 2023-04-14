@@ -47,7 +47,7 @@ router.get('/getAllRequest', (_req, res) => {
 });
 
 
-router.get('/AttendRequest', (req, res) => {
+router.post('/AttendRequest', (req, res) => {
     console.log('Atender una solicitud')
     let data = req.body;
     new RequestDomain().attendAnyRequest(data).then(response => {
