@@ -9,16 +9,11 @@ export class RequestQueries {
     }
 
     async registerNewRequest(dataToSave: any) {
-      //  let lat = parseFloat(dataToSave.lat)
-      //  let long = parseFloat(dataToSave.long)
-    //    let ci = parseInt(dataToSave.ci)
-
         const response = await prisma.service.create({
             data: {
                 lat: parseFloat(dataToSave.lat),
                 long: parseFloat(dataToSave.long),
                 ci: parseFloat(dataToSave.ci)
-               // dateService: set(new Date(), { hours: 1, minutes: 10 }),
             }
         })
         return response;
