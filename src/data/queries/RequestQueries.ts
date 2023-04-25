@@ -1,5 +1,4 @@
 const {PrismaClient} = require('@prisma/client')
-//import set from 'date-fns/set'
 
 const prisma = new PrismaClient()
 
