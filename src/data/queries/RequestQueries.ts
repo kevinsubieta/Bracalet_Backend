@@ -36,4 +36,22 @@ export class RequestQueries {
         return responseFromDB
     }
 
+
+    async getAllServices() {
+        let responseFromDB = await prisma.service.findMany()
+        return responseFromDB
+    }
+
+    async getAllServicesByCi(data: any) {
+        let ci: number = parseFloat(data.ci)
+        let responseFromDB = await prisma.service.findFirst({
+            where: {
+                ci: ci
+            }
+        })
+        return responseFromDB
+    }
+
+
+
 }

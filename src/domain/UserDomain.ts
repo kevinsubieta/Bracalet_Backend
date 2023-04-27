@@ -5,14 +5,22 @@ export class UserDomain {
     constructor() {
     }
 
-    async createNewUserTest(){
-        let userQueries = new UsersQueries()
-        return await userQueries.getAllUser()
+    async createNewUserTest() {
+        try {
+            let userQueries = new UsersQueries()
+            return await userQueries.getAllUser()
+        } catch (error) {
+            return "ERROR"
+        }
     }
 
-    async tryLoginUser(data: any){
-        let userQueries = new UsersQueries()
-        return await userQueries.loginByUserAndPass(data)
+    async tryLoginUser(data: any) {
+        try {
+            let userQueries = new UsersQueries()
+            return await userQueries.loginByUserAndPass(data)
+        } catch (error) {
+            return "ERROR"
+        }
     }
 
 

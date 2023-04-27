@@ -47,6 +47,27 @@ router.get('/getAllRequest', (_req, res) => {
 });
 
 
+router.get('/getAllServices', (_req, res) => {
+    console.log('Ver todos los servicios')
+    new RequestDomain().getAllServices().then(response => {
+        let jsonResponse = JSON.stringify(response)
+        console.log(jsonResponse);
+        res.send(jsonResponse);
+    })
+});
+
+
+router.post('/getAllServicesByCi', (req, res) => {
+    console.log('Ver todos los servicios por ci')
+    let data = req.body;
+    new RequestDomain().getAllServicesByCi(data).then(response => {
+        let jsonResponse = JSON.stringify(response)
+        console.log(jsonResponse);
+        res.send(jsonResponse);
+    })
+});
+
+
 router.post('/AttendRequest', (req, res) => {
     console.log('Atender una solicitud')
     let data = req.body;
