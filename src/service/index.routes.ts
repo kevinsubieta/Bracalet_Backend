@@ -4,6 +4,12 @@ import {RequestDomain} from "../domain/RequestDomain";
 
 const router = Router();
 
+router.all('/*', function(_req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
 router.get('/', (_req, res) => {
     console.log('someone pinged here!!! ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString());
     new UserDomain().createNewUserTest().then(response => {
