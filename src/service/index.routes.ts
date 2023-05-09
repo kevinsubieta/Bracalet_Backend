@@ -69,7 +69,7 @@ router.post('/registerRequest', (req, res) => {
 
 
 router.get('/getAllRequest', (_req, res) => {
-    console.log('Ver todas las solicitudes pendientes')
+    console.log('Ver todas las solicitudes')
     new RequestDomain().getAllRequest().then(response => {
         let jsonResponse = JSON.stringify(response)
         console.log(jsonResponse);
