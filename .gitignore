@@ -1,0 +1,10 @@
+node_modules
+.env
+package-lock.json
+package.json
+.idea
+.vscode
+dist
+src/assets/deltax-dev-cc16fb7caaa8.json
+src/assets/service-account-key.private.json
+
