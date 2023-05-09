@@ -8,8 +8,7 @@ dotenv.config();
 const app = express();
 
 
-
-app.use(cors())
+app.options('*', cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded())
 app.use(bodyParser.json())
